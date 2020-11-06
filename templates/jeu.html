@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block banque %}
+    {{banque}} €
+{% endblock %}
+
+{% block alert %}
+<div class="alert" role="alert">
+          <strong>{{msg}}</strong>
+</div>
+{% endblock %}
+
+{% block body %}
+<div>
+    <style type="text/css" >
+        body{margin-top: 100px;}.ligne{display: inline-flex;margin: 0 auto;}
+        img {width: 100px;margin: 0 10px;}
+        .colonne{margin-top: 30px;}
+    </style>
+    <h3>Jeu</h3>
+
+
+    <h5>Main finale</h5>
+    <div class="ligne" >
+        {% for tirage in dernier_tirage %}
+        <div><img src="/static/cards_deck/{{tirage}}.svg"></div>
+        {% endfor %}
+    </div>
+
+
+        <div style="margin-top: 45px;">
+
+            <div class="colonne">
+                <form action="/commencer" method="POST">
+                    <button type="submit" name="rejouer" class="button button1">Rejouer</button>
+                </form>
+            </div>
+
+            <div class="colonne">
+                <form action="/" method="POST">
+                    <button type="submit" class="button button2">Quitter</button>
+                </form>
+            </div>
+
+        </div>
+</div>
+{% endblock %}

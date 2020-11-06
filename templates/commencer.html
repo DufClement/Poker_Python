@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block banque %}
+    {{banque}} €
+{% endblock %}
+
+{% block body %}
+<div>
+    <style type="text/css" >
+      .ligne{display: inline-flex;margin: 0 auto;}
+      .colonne{margin: 15px;}
+    </style>
+    <h3>Jeu</h3>
+
+    <h4>Démarrer la partie</h4>
+    <form action="/miser" method="POST">
+        <div class="ligne">
+            {% if not rejouer %}
+              <div class="colonne">
+                <div>
+                  <div>
+                    <span>Banque</span>
+                  </div>
+                  <input type="text" name="banque" class="form-control">
+                  <div>
+                    <span>€</span>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="colonne">
+              <div>
+                <div>
+                  <span>Mise</span>
+                </div>
+                <input type="text" name="mise" class="form-control">
+                <div>
+                  <span>€</span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div><button type="submit" class="button button1">Envoyer</button></div>
+    </form>
+
+</div>
+{% endblock %}

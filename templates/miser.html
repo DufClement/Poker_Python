@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block banque %}
+    {{banque}} €
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <style type="text/css" >
+        body{margin-top: 100px;}.ligne{display: inline-flex;margin: 0 auto;}
+        img {width: 100px;}
+    </style>
+    <h3>Jeu</h3>
+
+
+    <h5> Sélectionnez les cartes que vous voulez garder dans votre main  </h5>
+    <form action="/jeu" method="POST">
+        <div class="ligne" >
+            {% for carte in main %}
+            <div><img src="/static/cards_deck/{{carte}}.svg"> <input type="checkbox"  name="{{carte}}"> </div>
+            {% endfor %}
+        </div>
+        <div style="margin-top: 45px;">
+            <button type="submit" class="button button1">Envoyer</button>
+        </div>
+    </form>
+
+
+
+</div>
+{% endblock %}

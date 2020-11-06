@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block banque %}
+    {{banque}} €
+{% endblock %}
+
+{% block body %}
+<div>
+    <h3><a class="button button3" href="/commencer">Lancer une partie</a></h3>
+</div>
+{% endblock %}
+
+{% block alert %}
+    {% if resultat > 0 %}
+        {% if resultat > banque %}
+            <div class="alert" role="alert">
+                      <strong>Vous avez perdu {{resultat-banque}} €</strong>
+            </div>
+        {% else %}
+            <div class="alert" role="alert">
+                      <strong>Vous avez gagné {{banque - resultat}} € par rapport à votre banque de départ : {{resultat}} €</strong>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
